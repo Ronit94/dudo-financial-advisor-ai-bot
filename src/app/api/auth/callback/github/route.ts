@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
       client_id: process.env.AUTH_GITHUB_ID!,
       client_secret: process.env.AUTH_GITHUB_SECRET!,
       code,
-      redirect_uri: "http://localhost:3000/api/auth/callback/github",
+      redirect_uri: process.env.GITHUB_REDIRECT_URL || "http://localhost:3000/api/auth/callback/github",
       grant_type: "authorization_code",
       code_verifier: codeVerifier,
     }),

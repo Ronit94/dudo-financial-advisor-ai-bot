@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
     `https://github.com/login/oauth/authorize?` +
       new URLSearchParams({
         client_id: process.env.AUTH_GITHUB_ID!,
-        redirect_uri: "http://localhost:3000/api/auth/callback/github",
+        redirect_uri: process.env.GITHUB_REDIRECT_URL || "http://localhost:3000/api/auth/callback/github",
         scope: "read:user user:email",
         state: crypto.randomBytes(16).toString("hex"),
         response_type: "code",
