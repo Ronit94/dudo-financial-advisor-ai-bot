@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     });
   }
 
-  fetch("http://localhost:3000/api/user/register", {
+  fetch(`${process.env.NEXTAUTH_URL}/api/user/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
